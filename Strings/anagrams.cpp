@@ -1,4 +1,4 @@
-// first solution ( not so efficient )
+// first solution ( not so efficient - O(n^2) )
 
 #include<iostream>
 #include<string>
