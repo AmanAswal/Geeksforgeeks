@@ -79,3 +79,49 @@ int main()
 
 	return 0;
 }
+
+
+// Best Solution with O(n) time complexity and O(1) space complexity
+
+#include<iostream>
+#include<string>
+#include<algorithm>
+using namespace std;
+
+bool areAnagram(string s1, string s2){
+   int a[256] = {0};                                                                      
+   
+   if(s1.length()!=s2.length()){
+      return false;
+   }
+
+   for(int i=0; i<s1.length(); i++){
+      int index = s1[i];
+      a[index]++;
+   }
+   for(int i=0; i<s2.length(); i++){
+      int index = s2[i];
+      a[index]--;
+   }
+
+   for(int i=0; i<256;i++){
+      if(a[i]!=0){
+         return false;
+      }
+   }
+   return true;
+}
+
+int main()
+{
+   string a = "abcc";
+   string b = "acbc";
+   if(areAnagram(a,b)){
+      cout<<"anagram";
+   }
+   else{
+      cout<<"not anagram";
+   }
+
+	return 0;
+}
