@@ -1,3 +1,5 @@
+// first solution ( not so efficient )
+
 #include<iostream>
 #include<string>
 using namespace std;
