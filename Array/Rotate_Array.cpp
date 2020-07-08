@@ -1,4 +1,4 @@
-// clockwise rotation using Reversal Algorithm. 
+// Anti-clockwise rotation using Reversal Algorithm. 
 // T.C = O(n) and Auxillary S.C = O(1)
 
 #include<iostream>
