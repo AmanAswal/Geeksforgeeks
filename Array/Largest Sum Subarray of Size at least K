@@ -1,0 +1,39 @@
+#include<iostream>
+#include<climits>
+using namespace std;
+int Helper(int ar[],int n,int k){
+    if(n==1) return ar[0];
+    
+    int cur_sum=0, ans=INT_MIN, best_ps=INT_MAX, cur_ps=0;
+    
+    for(int i=0;i<k;i++){
+        cur_sum+=ar[i];
+       
+    } 
+    
+    ans=max(ans,cur_sum);
+     
+    for(int i=k;i<n;i++){
+        cur_sum+=ar[i];
+        ans=max(ans,cur_sum);
+        cur_ps+=ar[i-k];
+        best_ps=min(best_ps,cur_ps);
+        ans=max(ans,cur_sum-best_ps);
+    }
+    return ans;
+}
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,k;
+	    cin>>n;
+	    int ar[n];
+	    for(int i=0;i<n;i++) cin>>ar[i];
+	    cin>>k;
+	    cout<<Helper(ar,n,k)<<endl;
+	}
+	return 0;
+}
