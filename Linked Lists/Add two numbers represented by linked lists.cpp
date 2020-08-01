@@ -46,3 +46,45 @@ struct Node* addTwoLists(struct Node* first, struct Node* second)
     return sum;
 }
 
+
+
+// when input is in reverse order
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* sum = NULL; // making a pointer
+        int carry=0;
+        
+        while(l1!=NULL || l2!=NULL || carry!=NULL)
+        {
+            int newValue=carry; // assign value of carry to newValue node
+            
+            if(l1)
+                newValue += l1->val;    // add data of L1 to the newValue
+            if(l2)
+                newValue += l2->val;    // add data of L2 to the newValue
+            
+            carry = newValue/10;    // updating carry
+            newValue = newValue%10; // making sure newVal is < 10
+            
+            ListNode * newNode = new ListNode(newValue);    // making newNode with value of newValue
+
+            if(sum == NULL)     // appending newVal node
+                sum = newNode;
+            else{
+                ListNode* temp = sum;   // insert newNode at the end 
+                while(temp->next!=NULL){
+                     temp = temp->next;
+                }
+                   
+                temp->next = newNode;
+            }
+            
+            if(l1)
+                l1 = l1->next;      // moving to next node in L1
+            if(l2)
+                l2 = l2->next;      // moving to next node in L2
+        }
+        return sum; // return the head pointer of new Linked List containing Sum
+    }
+};
