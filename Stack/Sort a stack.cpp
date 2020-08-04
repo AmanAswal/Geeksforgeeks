@@ -19,10 +19,13 @@ void SortedStack :: sort()
 
 //2nd approach
 
-multiset<int> st;
+void SortedStack :: sort()
+{
+    multiset<int> st;
     while(!s.empty()){
     st.insert(s.top());
     s.pop();
     }
     for(auto itr=st.begin();itr!=st.end();itr++)
     s.push(*itr);
+}
